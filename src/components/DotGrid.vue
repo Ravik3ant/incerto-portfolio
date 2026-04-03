@@ -25,13 +25,13 @@
 
 .wash-a {
   background:
-    radial-gradient(58rem 30rem at 8% 5%, rgba(20, 184, 166, 0.065), transparent 72%),
-    radial-gradient(38rem 24rem at 92% 10%, rgba(15, 118, 110, 0.045), transparent 72%);
+    radial-gradient(58rem 30rem at 8% 5%, rgba(60, 72, 68, 0.04), transparent 72%),
+    radial-gradient(38rem 24rem at 92% 10%, rgba(72, 82, 78, 0.03), transparent 72%);
 }
 
 .wash-b {
   background:
-    radial-gradient(42rem 26rem at 50% 78%, rgba(13, 148, 136, 0.04), transparent 75%);
+    radial-gradient(42rem 26rem at 50% 78%, rgba(66, 78, 74, 0.025), transparent 75%);
 }
 
 .texture {

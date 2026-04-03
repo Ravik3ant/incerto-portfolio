@@ -35,13 +35,13 @@ const {
 
       :root {
         --bg: #fcfcfa;
-        --bg-alt: #edf2f1;
+        --bg-alt: #f3f4f4;
         --ink: #101312;
         --muted: #47504e;
         --accent: #0d9488;
         --accent-light: #14b8a6;
         --border: rgba(16, 19, 18, 0.18);
-        --section-tint: #f6faf9;
+        --rail-w: 124px;
       }
 
       ::selection {
@@ -67,39 +67,59 @@ const {
       a { color: inherit; text-decoration: none; }
 
       section {
+        position: relative;
         border-bottom: 1px solid var(--border);
       }
 
       section:nth-of-type(odd) {
-        background: rgba(255, 255, 255, 0.84);
+        background: rgba(255, 255, 255, 0.9);
       }
 
       section:nth-of-type(even) {
-        background: var(--section-tint);
+        background: var(--bg-alt);
       }
 
       .section-inner {
         display: grid;
-        grid-template-columns: 140px 1fr;
-        max-width: 1200px;
+        grid-template-columns: var(--rail-w) 1fr;
+        max-width: 1320px;
+        width: calc(100% - 24px);
         margin: 0 auto;
+        position: relative;
       }
 
       .section-label {
-        padding: 40px 24px;
+        padding: 28px 16px;
         border-right: 1px solid var(--border);
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.6rem;
+        font-size: 0.56rem;
         letter-spacing: 0.15em;
         text-transform: uppercase;
         color: #2f3836;
         writing-mode: vertical-lr;
         transform: rotate(180deg);
-        background: rgba(13, 148, 136, 0.04);
       }
 
       .section-body {
-        padding: 40px 28px 40px 36px;
+        padding: 26px 20px 28px 24px;
+      }
+
+      section + section .section-inner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: var(--rail-w);
+        width: 14px;
+        height: 14px;
+        transform: translate(-50%, -50%);
+        background-image:
+          linear-gradient(var(--border), var(--border)),
+          linear-gradient(var(--border), var(--border));
+        background-repeat: no-repeat;
+        background-size: 1px 14px, 14px 1px;
+        background-position: center;
+        pointer-events: none;
+        z-index: 3;
       }
 
       /* Reveal */
@@ -131,10 +151,9 @@ const {
           writing-mode: horizontal-tb;
           transform: none;
           padding: 16px 20px 0;
-          border-right: none;
-          border-bottom: 1px solid var(--border);
         }
         .section-body { padding: 24px 18px; }
+        section + section .section-inner::before { display: none; }
       }
     </style>
   </head>

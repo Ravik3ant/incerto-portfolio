@@ -51,7 +51,7 @@ withDefaults(defineProps<{
 .statement:nth-child(3) { animation-delay: 0.19s; }
 
 .statement {
-  max-width: 640px;
+  max-width: 940px;
   padding: 12px 0 14px;
   border-bottom: 1px solid var(--border);
 }
@@ -59,9 +59,9 @@ withDefaults(defineProps<{
 .statement:last-child { border-bottom: none; }
 
 .statement-text {
-  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-size: clamp(1.14rem, 1.5vw, 1.55rem);
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--ink);
 }
 
