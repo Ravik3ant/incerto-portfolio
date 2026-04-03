@@ -2,17 +2,17 @@
   <header class="hero section-inner">
     <div class="section-label">§ Intro</div>
     <div class="section-body hero-inner">
-      <span class="hero-tag">Incerto · Problem Solving Research Intern</span>
+      <span class="hero-tag">Incerto · Intern</span>
 
       <h1 class="hero-title">
-        Hi, I'm <em>Ravikant.</em><br>
-        I build systems across physics, AI, and product.<br>
-        I work where playbooks fail.
+        Hey, I'm <em>Ravikant.</em><br>
+        I build and analyze physical systems at small scales.<br>
+        Focused on extracting simple models from messy reality.<br>
       </h1>
 
       <p class="hero-sub">
-        Sophomore at BITS Hyderabad (M.Sc. Physics + B.E. EEE).<br>
-        Built micro-scale soft robotics models, computational physics simulations, and production AI features.
+        I connect first-principles modeling, production AI engineering, and product execution.<br>
+        Sophomore at BITS Hyderabad (M.Sc. Physics + B.E. EEE), focused on term project.
       </p>
 
       <div class="hero-links">

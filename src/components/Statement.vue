@@ -22,11 +22,11 @@ withDefaults(defineProps<{
   label: '§ Why This',
   items: () => [
     {
-      text: 'I ship in ambiguity: frame fast, test hard, update from evidence.',
-      note: '[ first principles + execution ]'
+      text: 'I build from first principles, then pressure-test in production.',
+      note: '[ modeling -> shipping ]'
     },
     {
-      text: 'I am not choosing between research and product. I build systems that survive contact with reality.',
+      text: 'My edge is translation: physics rigor into AI systems and usable product behavior.',
       note: '[ physics + AI + product ]'
     },
   ]

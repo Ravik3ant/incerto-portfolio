@@ -20,6 +20,9 @@
             <p class="research-brief">{{ item.brief }}</p>
 
             <div v-show="open === i" class="research-detail">
+              <ul class="proof-list">
+                <li v-for="(point, pi) in item.proof" :key="`${i}-${pi}`" class="proof-item">{{ point }}</li>
+              </ul>
               <div class="insight">
                 <span class="insight-label">Key Insight</span>
                 <p>{{ item.insight }}</p>
@@ -38,7 +41,7 @@ import { ref } from 'vue';
 
 withDefaults(defineProps<{
   label?: string;
-  items?: { tag: string; title: string; brief: string; insight: string; output: string }[];
+  items?: { tag: string; title: string; brief: string; insight: string; output: string; proof: string[] }[];
 }>(), {
   label: '§ Research',
   items: () => [
@@ -47,14 +50,24 @@ withDefaults(defineProps<{
       title: 'Micro-Scale PneuNet Optimization',
       brief: 'Derived actuator geometry at ~100 um scale from first principles where almost no literature exists.',
       insight: 'At this scale, mass and gravity terms can be deprioritized. Treating the domain as a different regime cut design noise and made optimization tractable.',
-      output: 'Output: model-driven geometry shortlist for micro-scale prototypes.'
+      output: 'Output: model-driven geometry shortlist for micro-scale prototypes.',
+      proof: [
+        '~100 um operating regime',
+        '3-variable reduced model for design sweep',
+        'Geometry shortlist prepared for micro-fab testing'
+      ]
     },
     {
       tag: 'Computational Physics',
       title: 'Chladni Pattern Reproduction',
       brief: 'Built simulations to reproduce Chladni plate modes and used them in instructional sessions.',
       insight: 'When outputs diverged, I traced each failure to violated physical assumptions rather than tuning parameters blindly.',
-      output: 'Output: reproducible pattern simulations used in peer teaching.'
+      output: 'Output: reproducible pattern simulations used in peer teaching.',
+      proof: [
+        'Mode-shape simulations reproduced expected nodal structure',
+        'Reusable simulation demo used in peer teaching sessions',
+        'Failure cases debugged via law-level constraint checks'
+      ]
     }
   ]
 });
@@ -132,6 +145,26 @@ function toggle(i: number) {
   margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid var(--border);
+}
+
+.proof-list {
+  list-style: none;
+  margin: 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.proof-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.04em;
+  color: #2a3533;
+}
+
+.proof-item::before {
+  content: '+ ';
+  color: var(--accent);
 }
 
 .insight {
