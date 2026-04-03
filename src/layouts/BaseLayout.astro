@@ -1,0 +1,146 @@
+---
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Ravikant Patil | Incerto",
+  description = "Application for Problem Solving Research Intern at Incerto.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+    <style is:global>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #fcfcfa;
+        --bg-alt: #edf2f1;
+        --ink: #101312;
+        --muted: #47504e;
+        --accent: #0d9488;
+        --accent-light: #14b8a6;
+        --border: rgba(16, 19, 18, 0.18);
+        --section-tint: #f6faf9;
+      }
+
+      ::selection {
+        background: var(--accent);
+        color: var(--bg);
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: 'Space Grotesk', sans-serif;
+        overflow-x: hidden;
+        cursor: none;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      section {
+        border-bottom: 1px solid var(--border);
+      }
+
+      section:nth-of-type(odd) {
+        background: rgba(255, 255, 255, 0.84);
+      }
+
+      section:nth-of-type(even) {
+        background: var(--section-tint);
+      }
+
+      .section-inner {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        padding: 40px 24px;
+        border-right: 1px solid var(--border);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #2f3836;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        background: rgba(13, 148, 136, 0.04);
+      }
+
+      .section-body {
+        padding: 40px 28px 40px 36px;
+      }
+
+      /* Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Noise overlay */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1000;
+      }
+
+      @media (max-width: 768px) {
+        body { cursor: auto; }
+        .cursor { display: none !important; }
+        .section-inner { grid-template-columns: 1fr; }
+        .section-label {
+          writing-mode: horizontal-tb;
+          transform: none;
+          padding: 16px 20px 0;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .section-body { padding: 24px 18px; }
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+    <Analytics />
+    <SpeedInsights />
+  </body>
+</html>
