@@ -6,7 +6,7 @@
 
       <h1 class="hero-title">
         Hi, I'm <em>Ravikant.</em><br>
-        I build systems across <em>physics</em>, <em>AI</em>, and <em>product</em>.<br>
+        I build systems across physics, AI, and product.<br>
         I work where playbooks fail.
       </h1>
 
